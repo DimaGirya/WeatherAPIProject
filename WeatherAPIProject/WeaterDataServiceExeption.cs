@@ -9,5 +9,6 @@ namespace WeatherAPIProject
     class WeaterDataServiceExeption:Exception //need to chek if it's ok
     {
 
+
     }
 }

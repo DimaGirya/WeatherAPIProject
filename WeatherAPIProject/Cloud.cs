@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    class WeatherDataServiceFactors // need to be a Factory design paettern
+    class Cloud
     {
+        private float value { get; set; }
+        private string name { get; set; }
     }
 }

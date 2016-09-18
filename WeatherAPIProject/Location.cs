@@ -9,5 +9,12 @@ namespace WeatherAPIProject
     class Location
     {
         public String locationName { get; set; }
+
+        public Location(string locationName)
+        {
+            this.locationName = locationName;
+        }
+
+        
     }
 }

@@ -8,14 +8,14 @@ namespace WeatherAPIProject
 {
     class WeatherData
     {
-        private float temperature { get; set; }
-        private string unit { get; set; }
-        private float humidity { get; set; }
-        private float visibilityValue { get; set; }
-        private float pressure { get; set; }
-        private Wind wind { get; set; }
-        private Cloud cloud { get; set; }
-        private Sun sun { get; set; }
-        DateTime lastUpdate { get; set; }
+        public float temperature { get; set; }
+        public string unit { get; set; }
+        public string humidity { get; set; }
+        //public float visibilityValue { get; set; }
+        public float pressure { get; set; }
+        public Wind wind { get; set; }
+        public Cloud cloud { get; set; }
+        public Sun sun { get; set; }
+        public DateTime lastUpdate { get; set; }
     }
 }

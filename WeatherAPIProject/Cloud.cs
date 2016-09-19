@@ -8,7 +8,7 @@ namespace WeatherAPIProject
 {
     class Cloud
     {
-        private float value { get; set; }
-        private string name { get; set; }
+        public float value { get; set; }
+        public string name { get; set; }
     }
 }

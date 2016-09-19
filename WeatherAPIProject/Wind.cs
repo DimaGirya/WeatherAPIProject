@@ -8,8 +8,8 @@ namespace WeatherAPIProject
 {
     class Wind
     {
-        private float value { get; set; }
-        private string name { get; set; }
+        public float speed { get; set; }
+        public string name { get; set; }
     }
 }
 

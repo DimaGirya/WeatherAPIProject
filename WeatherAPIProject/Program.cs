@@ -8,12 +8,16 @@ namespace WeatherAPIProject
 {
     class Program
     {
+
+        enum WeatherWebServices { OPEN_WEATER_MAP };
+
         static void Main(string[] args)
         {
             OpenWeatherMapDataService service = OpenWeatherMapDataService.Instance;
-            System.Console.WriteLine(service.GetWeatherData(new Location("London")));
-            
+            //System.Console.WriteLine(service.GetWeatherData(new Location("London")));
+             
+      
 
-        }
+    }
     }
 }

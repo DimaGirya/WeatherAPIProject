@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    class WeatherData
+    public class WeatherData
     {
         public float temperature { get; set; }
         public string unit { get; set; }

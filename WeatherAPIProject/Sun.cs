@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    class Sun
+    public class Sun
     {
     }
 }

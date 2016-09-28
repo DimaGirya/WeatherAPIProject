@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    class Location
+    public class Location
     {
         public String locationName { get; set; }
 

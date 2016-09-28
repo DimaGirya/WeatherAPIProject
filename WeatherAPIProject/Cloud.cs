@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    class Cloud
+    public class Cloud
     {
         public float value { get; set; }
         public string name { get; set; }

@@ -9,7 +9,6 @@ namespace WeatherAPIProject
     class Program
     {
 
-        enum WeatherWebServices { OPEN_WEATER_MAP };
 
         static void Main(string[] args)
         {

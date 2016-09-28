@@ -11,11 +11,11 @@ using System.Xml.Linq;
 namespace WeatherAPIProject
 
 {
-    class OpenWeatherMapDataService : IWeatherDataService 
+    public class OpenWeatherMapDataService : IWeatherDataService 
     {
-        private static OpenWeatherMapDataService instance;
+        public static OpenWeatherMapDataService instance;
 
-        private OpenWeatherMapDataService() { }
+        public OpenWeatherMapDataService() { }
 
         public static OpenWeatherMapDataService Instance
         {
@@ -28,6 +28,7 @@ namespace WeatherAPIProject
                 return instance;
             }
         }
+
         public WeatherData GetWeatherData(Location location)
         {
             string data = DownloadWeatherXml("http://api.openweathermap.org/data/2.5/weather?q=" + location.locationName + "&mode=xml&APPID=a0dfc9db3d55a51591963a9b491c51e9");

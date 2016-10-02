@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherAPIProject.Service;
 
 namespace WeatherAPIProject
 {
     class WeatherDataServiceFactory 
     {
-        enum WeatherWebServices { OPEN_WEATER_MAP, OTHER_SERIVCE };
-
-        public IWeatherDataService getWeatherDataService(int weatherWebService)
+        
+        public IWeatherDataService GetWeatherDataService(WeatherWebServices weatherWebService)
         {
             switch (weatherWebService)
             {
-                case (int)WeatherWebServices.OPEN_WEATER_MAP:
-                     return new OpenWeatherMapDataService();
-                case (int)WeatherWebServices.OTHER_SERIVCE:
+                case WeatherWebServices.OPEN_WEATER_MAP:
+                     return new OpenWeatherMapDataService(new WebDownloader());
+                case WeatherWebServices.OTHER_SERIVCE:
                     return null; // return OTHER_SERVICE object
                 default:
                     return null;
             }
         }
     }
+    enum WeatherWebServices { OPEN_WEATER_MAP, OTHER_SERIVCE };
+
+
 }

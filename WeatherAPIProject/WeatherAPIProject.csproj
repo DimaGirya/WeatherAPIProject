@@ -43,17 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cloud.cs" />
-    <Compile Include="IWeatherDataService.cs" />
-    <Compile Include="Location.cs" />
-    <Compile Include="OpenWeatherMapDataService.cs" />
+    <Compile Include="Model\Cloud.cs" />
+    <Compile Include="Service\IWeatherDataService.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Service\IWebDownloader.cs" />
+    <Compile Include="Service\OpenWeatherMapDataService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sun.cs" />
-    <Compile Include="WeaterDataServiceExeption.cs" />
-    <Compile Include="WeatherData.cs" />
-    <Compile Include="WeatherDataServiceFactory.cs" />
-    <Compile Include="Wind.cs" />
+    <Compile Include="Model\Sun.cs" />
+    <Compile Include="Model\WeaterDataServiceExeption.cs" />
+    <Compile Include="Model\WeatherData.cs" />
+    <Compile Include="Service\WeatherDataServiceFactory.cs" />
+    <Compile Include="Model\Wind.cs" />
+    <Compile Include="Service\WebDownloader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

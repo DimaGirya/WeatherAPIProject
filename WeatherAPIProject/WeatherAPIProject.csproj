@@ -52,7 +52,7 @@
     <Compile Include="Sun.cs" />
     <Compile Include="WeaterDataServiceExeption.cs" />
     <Compile Include="WeatherData.cs" />
-    <Compile Include="WeatherDataServiceFactors.cs" />
+    <Compile Include="WeatherDataServiceFactory.cs" />
     <Compile Include="Wind.cs" />
   </ItemGroup>
   <ItemGroup>

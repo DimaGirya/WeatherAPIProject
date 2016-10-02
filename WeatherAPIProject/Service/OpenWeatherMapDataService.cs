@@ -6,36 +6,25 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
+using WeatherAPIProject.Service;
 
 namespace WeatherAPIProject
-
 {
     public class OpenWeatherMapDataService : IWeatherDataService 
     {
-        public static OpenWeatherMapDataService instance;
+        private IWebDownloader webDownloader;
 
-        public OpenWeatherMapDataService() { }
-
-        public static OpenWeatherMapDataService Instance
+        public OpenWeatherMapDataService(IWebDownloader webDownloader)
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new OpenWeatherMapDataService();
-                }
-                return instance;
-            }
+            this.webDownloader = webDownloader;
         }
 
         public WeatherData GetWeatherData(Location location)
         {
             string data = DownloadWeatherXml("http://api.openweathermap.org/data/2.5/weather?q=" + location.locationName + "&mode=xml&APPID=a0dfc9db3d55a51591963a9b491c51e9");
 
-            //to do check if xml is legal 
+            //TODO: to do check if xml is legal 
             // validateResponse();
-
             
             string myXML = @data;
             XDocument xdoc = new XDocument();
@@ -43,6 +32,9 @@ namespace WeatherAPIProject
             XElement xelement = XElement.Parse(data);
 
             WeatherData weatherData = new WeatherData();
+            weatherData.sun = new Sun();
+            weatherData.sun.Rise=DateTime.Parse(xelement.Element("city").Element("sun").Attribute("rise").Value);
+            weatherData.sun.Set = DateTime.Parse(xelement.Element("city").Element("sun").Attribute("set").Value);
             weatherData.temperature = float.Parse(xelement.Element("temperature").Attribute("value").Value);
             weatherData.unit = xelement.Element("temperature").Attribute("unit").Value;
             weatherData.humidity = xelement.Element("humidity").Attribute("value").Value+"%";
@@ -58,23 +50,16 @@ namespace WeatherAPIProject
             weatherData.lastUpdate = DateTime.Parse(xelement.Element("lastupdate").Attribute("value").Value);
             return weatherData;
         }
-
-
-        public string DownloadWeatherXml(string url)
+        
+        private string DownloadWeatherXml(string url)
         {
-            string wheatherXml = String.Empty;
-            WebClient client = new WebClient();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            wheatherXml = reader.ReadToEnd();
-            return wheatherXml;
+            return webDownloader.Download(url);
         }
 
-        public void validateResponse(string response)
+        private void ValidateResponse(string response)
         {
-
+            //TODO: implement it!!!
         }
     }
+    
 }

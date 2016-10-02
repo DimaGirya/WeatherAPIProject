@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherAPIProject
+namespace WeatherAPIProject.Service
 {
-    public class Sun
+    public interface IWebDownloader
     {
+        string Download(string url);
     }
 }

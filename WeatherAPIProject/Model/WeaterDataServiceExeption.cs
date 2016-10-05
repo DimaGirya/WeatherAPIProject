@@ -6,9 +6,27 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    class WeaterDataServiceExeption:Exception //need to chek if it's ok
+    public class WeaterDataServiceExeption:Exception //need to chek if it's ok
     {
+        private string _message;
 
+        public WeaterDataServiceExeption(string message)
+        {
+            _message  = message;
+        }
+
+        public override string Message
+        {
+            get
+            {
+                return _message;
+            }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Weater data service exeption {0}", Message);
+        }
 
     }
 }

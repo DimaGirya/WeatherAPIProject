@@ -10,20 +10,19 @@ namespace WeatherAPIProject
     class WeatherDataServiceFactory 
     {
         
-        public IWeatherDataService GetWeatherDataService(WeatherWebServices weatherWebService)
+        public IWeatherDataService GetWeatherDataService(WeatherWebServicesTypes weatherWebService)
         {
             switch (weatherWebService)
             {
-                case WeatherWebServices.OPEN_WEATER_MAP:
+                case WeatherWebServicesTypes.OPEN_WEATER_MAP:
                      return new OpenWeatherMapDataService(new WebDownloader());
-                case WeatherWebServices.OTHER_SERIVCE:
-                    return null; // return OTHER_SERVICE object
+                case WeatherWebServicesTypes.OTHER_SERIVCE:
                 default:
-                    return null;
+                    throw new WeaterDataServiceExeption("Unsupported service type "+ weatherWebService.ToString());
             }
         }
     }
-    enum WeatherWebServices { OPEN_WEATER_MAP, OTHER_SERIVCE };
+    enum WeatherWebServicesTypes { OPEN_WEATER_MAP, OTHER_SERIVCE };
 
 
 }

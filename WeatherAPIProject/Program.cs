@@ -10,10 +10,31 @@ namespace WeatherAPIProject
     {
         static void Main(string[] args)
         {
-            IWeatherDataService service = new WeatherDataServiceFactory().GetWeatherDataService(WeatherWebServices.OPEN_WEATER_MAP);
 
-            var result = service.GetWeatherData(new Location("TelAviv"));
+            try
+            {
+                new WeatherDataServiceFactory().GetWeatherDataService(WeatherWebServicesTypes.OTHER_SERIVCE);
+            }
+            catch (WeaterDataServiceExeption ex)
+            {
+                Console.WriteLine("error " + ex.Message);
+            }
 
+            try
+            {
+                IWeatherDataService service = new WeatherDataServiceFactory().GetWeatherDataService(WeatherWebServicesTypes.OPEN_WEATER_MAP);
+
+                var result = service.GetWeatherData(new Location("TelAviv"));
+
+            }
+            catch (WeaterDataServiceExeption ex)
+            {
+                Console.WriteLine("WeaterDataServiceExeption error" + ex.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error " + ex.Message);
+            }
         }
     }
 }

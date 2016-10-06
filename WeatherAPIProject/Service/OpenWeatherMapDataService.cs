@@ -9,6 +9,7 @@ namespace WeatherAPIProject
         private IWebDownloader webDownloader;
         private static OpenWeatherMapDataService instance;
 
+        //singleton design pattern
         public static OpenWeatherMapDataService getOpenWeatherMapDataService(IWebDownloader webDownloader)
         {
             if(instance == null){
@@ -16,6 +17,7 @@ namespace WeatherAPIProject
             }
             return instance;
         }
+
         private OpenWeatherMapDataService(IWebDownloader webDownloader)
         {
             this.webDownloader = webDownloader;
@@ -35,6 +37,7 @@ namespace WeatherAPIProject
 
             try
             {
+                //parsing data from xml
                 string myXML = @data;
                 XDocument xdoc = new XDocument();
                 xdoc = XDocument.Parse(myXML);

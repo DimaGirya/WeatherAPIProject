@@ -31,7 +31,7 @@ namespace WeatherAPIProject.Tests
             expected.Wind.Name = "Gentle Breeze";
             expected.Wind.Speed = 4.56F;
 
-            OpenWeatherMapDataService openWeatherMapDataService  = new OpenWeatherMapDataService(fakeDownloader);
+            OpenWeatherMapDataService openWeatherMapDataService = OpenWeatherMapDataService.getOpenWeatherMapDataService(fakeDownloader);
             Location location = new Location("Ashqelon");
 
             WeatherData actual = openWeatherMapDataService.GetWeatherData(location);

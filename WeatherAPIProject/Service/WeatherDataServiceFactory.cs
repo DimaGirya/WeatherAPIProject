@@ -9,14 +9,19 @@ namespace WeatherAPIProject
         
         public IWeatherDataService GetWeatherDataService(WeatherWebServicesTypes weatherWebService)
         {
+            OpenWeatherMapDataService openWeatherMapDataService = null;
             switch (weatherWebService)
             {
                 case WeatherWebServicesTypes.OPEN_WEATER_MAP:
-                     return new OpenWeatherMapDataService(new WebDownloader());
+                    { 
+                      openWeatherMapDataService = OpenWeatherMapDataService.getOpenWeatherMapDataService(new WebDownloader());
+                      break;
+                    }
                 case WeatherWebServicesTypes.OTHER_SERIVCE:
                 default:
                     throw new WeaterDataServiceExeption("Unsupported service type "+ weatherWebService.ToString());
             }
+            return openWeatherMapDataService;
         }
     }
    

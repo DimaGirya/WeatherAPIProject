@@ -7,8 +7,16 @@ namespace WeatherAPIProject
     public class OpenWeatherMapDataService : IWeatherDataService 
     {
         private IWebDownloader webDownloader;
+        private static OpenWeatherMapDataService instance;
 
-        public OpenWeatherMapDataService(IWebDownloader webDownloader)
+        public static OpenWeatherMapDataService getOpenWeatherMapDataService(IWebDownloader webDownloader)
+        {
+            if(instance == null){
+                instance = new OpenWeatherMapDataService(webDownloader);
+            }
+            return instance;
+        }
+        private OpenWeatherMapDataService(IWebDownloader webDownloader)
         {
             this.webDownloader = webDownloader;
         }

@@ -3,7 +3,7 @@ namespace WeatherAPIProject
 {
     public class Cloud
     {
-        public float value { get; set; }
-        public string name { get; set; }
+        public float Value { get; set; }
+        public string Name { get; set; }
     }
 }

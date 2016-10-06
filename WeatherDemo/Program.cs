@@ -34,20 +34,20 @@ namespace WeatherDemo
 
         private static void printWeather(WeatherData result,Location location)
         {
-            Console.WriteLine("Weather in "+ location.locationName + ":");
-            Console.WriteLine("Temperature (on "+result.unit + " unit):");
-            Console.WriteLine(result.temperature);
+            Console.WriteLine("Weather in "+ location.LocationName + ":");
+            Console.WriteLine("Temperature (on "+result.Unit + " unit):");
+            Console.WriteLine(result.Temperature);
             Console.WriteLine("Cloud:");
-            Console.WriteLine(result.cloud.name);
-            Console.WriteLine(result.cloud.value);
+            Console.WriteLine(result.Cloud.Name);
+            Console.WriteLine(result.Cloud.Value);
             Console.WriteLine("Humidity:");
-            Console.WriteLine(result.humidity);
+            Console.WriteLine(result.Humidity);
             Console.WriteLine("Pressure:");
-            Console.WriteLine(result.pressure);
+            Console.WriteLine(result.Pressure);
             Console.WriteLine("Sun rise:");
-            Console.WriteLine(result.sun.Rise);
+            Console.WriteLine(result.Sun.Rise);
             Console.WriteLine("Sun set:");
-            Console.WriteLine(result.sun.Set);
+            Console.WriteLine(result.Sun.Set);
         }
     }
 }

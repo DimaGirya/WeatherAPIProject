@@ -3,11 +3,11 @@ namespace WeatherAPIProject
 {
     public class Location
     {
-        public string locationName { get; set; }
+        public string LocationName { get; set; }
 
         public Location(string locationName)
         {
-            this.locationName = locationName;
+            this.LocationName = locationName;
         } 
     }
 }

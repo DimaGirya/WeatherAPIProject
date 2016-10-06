@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Net;
 
 
@@ -15,7 +14,7 @@ namespace WeatherAPIProject.Service
         /// <returns>String of data</returns>
         public string Download(string url)
         {
-            string str = String.Empty;
+            string str = string.Empty;
             WebClient client = new WebClient();
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();

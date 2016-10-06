@@ -20,8 +20,7 @@ namespace WeatherAPIProject.Service
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream stream = response.GetResponseStream();
-
-            using (StreamReader reader = new StreamReader(stream))
+            StreamReader reader = new StreamReader(stream);
             {
                 str = reader.ReadToEnd();
             }

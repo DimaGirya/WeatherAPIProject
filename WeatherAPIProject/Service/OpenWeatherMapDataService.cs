@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using WeatherAPIProject.Service;
 
@@ -25,6 +19,7 @@ namespace WeatherAPIProject
             try
             {
                 data = DownloadWeatherXml("http://api.openweathermap.org/data/2.5/weather?q=" + location.locationName + "&mode=xml&APPID=a0dfc9db3d55a51591963a9b491c51e9");
+                ValidateResponse(data);
             }
             catch (Exception ex)
             {
@@ -33,12 +28,10 @@ namespace WeatherAPIProject
 
             try
             {
-
                 string myXML = @data;
                 XDocument xdoc = new XDocument();
                 xdoc = XDocument.Parse(myXML);
                 XElement xelement = XElement.Parse(data);
-
                 WeatherData weatherData = new WeatherData();
                 weatherData.sun = new Sun();
                 weatherData.sun.Rise = DateTime.Parse(xelement.Element("city").Element("sun").Attribute("rise").Value);
@@ -71,7 +64,7 @@ namespace WeatherAPIProject
 
         private void ValidateResponse(string response)
         {
-            //TODO: implement it!!!
+            Console.WriteLine(response);
         }
     }
     

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    public class WeaterDataServiceExeption:Exception //need to chek if it's ok
+    public class WeaterDataServiceExeption:Exception 
     {
         private string _message;
 
@@ -25,7 +21,7 @@ namespace WeatherAPIProject
 
         public override string ToString()
         {
-            return string.Format("Weater data service exeption {0}", Message);
+            return string.Format("Weater data service exeption: {0}", Message);
         }
 
     }

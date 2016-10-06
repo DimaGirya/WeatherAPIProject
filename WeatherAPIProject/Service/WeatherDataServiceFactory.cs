@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WeatherAPIProject.Service;
+﻿using WeatherAPIProject.Service;
 
 namespace WeatherAPIProject
 {
-    class WeatherDataServiceFactory 
+    public enum WeatherWebServicesTypes { OPEN_WEATER_MAP, OTHER_SERIVCE };
+
+    public class WeatherDataServiceFactory 
     {
         
         public IWeatherDataService GetWeatherDataService(WeatherWebServicesTypes weatherWebService)
@@ -22,7 +19,7 @@ namespace WeatherAPIProject
             }
         }
     }
-    enum WeatherWebServicesTypes { OPEN_WEATER_MAP, OTHER_SERIVCE };
+   
 
 
 }

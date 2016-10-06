@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherAPIProject
 {
-    interface IWeatherDataService
+    public interface IWeatherDataService
     {
         WeatherData GetWeatherData(Location location);
     }
